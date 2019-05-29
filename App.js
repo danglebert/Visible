@@ -7,6 +7,6 @@ Navigation.registerComponent('Visible.Home', () => Home);
 Navigation.startSingleScreenApp({
   screen: {
     screen: 'Visible.Home',
-    title: 'Home'
+    title: 'Visible'
   }
 });

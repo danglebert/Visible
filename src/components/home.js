@@ -1,31 +1,55 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  ImageBackground,
+  KeyboardAvoidingView,
+  Image,
+  TextInput
+} from 'react-native';
+import MainText from '../components/ui/MainText';
+import backgroundImg from '../assets/purple-back.jpg';
+import teleIcon from '../assets/tv.png';
 
 export default class Home extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to Visible!</Text>
-      </View>
+      <ImageBackground source={backgroundImg} style={styles.backgroundImage}>
+        <KeyboardAvoidingView style={styles.container}>
+          <View style={styles.logoWelcome}>
+            <Image style={styles.tvIcon} source={teleIcon} />
+            <MainText style={styles.mainText}>Welcome to Visible</MainText>
+          </View>
+          <View>
+            <MainText>Placeholder</MainText>
+          </View>
+        </KeyboardAvoidingView>
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    width: '100%'
+  },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
   },
-  welcome: {
+  logoWelcome: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  tvIcon: {
+    height: 120,
+    width: 120
+  },
+  mainText: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5
   }
 });
