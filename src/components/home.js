@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   StyleSheet,
   ImageBackground,
@@ -11,8 +12,9 @@ import {
 import MainText from '../components/ui/MainText';
 import backgroundImg from '../assets/purple-back.jpg';
 import teleIcon from '../assets/tv.png';
+import { fetchMedia } from '../store/actions/media';
 
-export default class Home extends Component {
+class Home extends Component {
   state = {
     logoAnim: new Animated.Value(0),
     inputAnim: new Animated.Value(0),
@@ -39,6 +41,7 @@ export default class Home extends Component {
   };
 
   handleSubmit = () => {
+    this.props.fetchMedia(this.state.inputVal);
     this.props.navigator.push({
       screen: 'Visible.Results',
       title: 'Search Results',
@@ -76,6 +79,15 @@ export default class Home extends Component {
     );
   }
 }
+
+const mapDispatch = dispatch => ({
+  fetchMedia: query => dispatch(fetchMedia(query))
+});
+
+export default connect(
+  null,
+  mapDispatch
+)(Home);
 
 const styles = StyleSheet.create({
   backgroundImage: {
