@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   input: {
     width: 250,
     fontFamily: 'DINAlternate-Bold',
-    backgroundColor: '#A582B6',
+    backgroundColor: 'white',
     color: 'black',
     borderColor: '#D905DC',
     borderWidth: 1,
@@ -138,3 +138,5 @@ const styles = StyleSheet.create({
     padding: 3
   }
 });
+
+// #CC86EE - pinkish input background color
