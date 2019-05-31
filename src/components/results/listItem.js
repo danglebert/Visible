@@ -4,9 +4,12 @@ import MainText from '../../components/ui/MainText';
 
 export default class ListItem extends Component {
   render() {
-    const { media } = this.props;
+    const { media, handleClick } = this.props;
     return (
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => handleClick(media)}
+      >
         <Image source={{ uri: media.picture }} style={styles.image} />
         <MainText style={styles.text}>{media.name}</MainText>
       </TouchableOpacity>
@@ -32,7 +35,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '25%',
-    height: '95%',
+    height: '98%',
     marginRight: 15
   },
   text: {
