@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet, ImageBackground } from 'react-native';
 import ListItem from './listItem';
+import backgroundImg from '../../assets/results-background.jpg';
 
 class Results extends Component {
   render() {
     const { media } = this.props;
     return (
-      <View styles={styles.container}>
+      <ImageBackground source={backgroundImg} style={styles.container}>
         <ScrollView>
           {media.map(media => (
             <ListItem key={media.id} media={media} />
           ))}
         </ScrollView>
-      </View>
+      </ImageBackground>
     );
   }
 }
@@ -26,6 +27,7 @@ export default connect(mapState)(Results);
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    width: '100%'
   }
 });
