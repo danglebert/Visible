@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, ScrollView, StyleSheet, ImageBackground } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import ListItem from './listItem';
 import SingleMedia from '../singleMedia/singleMedia';
-import backgroundImg from '../../assets/results-background.jpg';
 import { selectMedia } from '../../store/actions/media';
 
 class Results extends Component {
@@ -13,8 +13,9 @@ class Results extends Component {
 
   render() {
     const { media } = this.props;
+    const gradColor = ['#27252F', '#242461', '#2D2C6F', '#8905F7', '#7A2850'];
     return (
-      <ImageBackground source={backgroundImg} style={styles.container}>
+      <LinearGradient colors={gradColor} style={styles.container}>
         <SingleMedia />
         <ScrollView>
           {media.map(media => (
@@ -25,7 +26,7 @@ class Results extends Component {
             />
           ))}
         </ScrollView>
-      </ImageBackground>
+      </LinearGradient>
     );
   }
 }

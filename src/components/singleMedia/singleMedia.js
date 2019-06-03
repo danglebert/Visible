@@ -14,7 +14,7 @@ class SingleMedia extends Component {
 
   render() {
     const { selectedMedia } = this.props;
-    const gradColor = ['#8905F7', '#6C16E8', '#4916E8', '#192f6a'];
+    const gradColor = ['#77295D', '#8905F7', '#6C16E8', '#4916E8', '#192f6a'];
     return (
       <Modal visible={!!selectedMedia} animationType="slide">
         <LinearGradient colors={gradColor} style={styles.gradient}>

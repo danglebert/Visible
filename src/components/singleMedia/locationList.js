@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Image,
-  Linking,
-  StyleSheet,
-  TouchableOpacity
-} from 'react-native';
+import { View, Linking, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import MainText from '../ui/MainText';
 
 class LocationList extends Component {
-  handlePress = () => {};
   render() {
     const { locations } = this.props;
     return (
