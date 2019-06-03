@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Modal, StyleSheet, Button } from 'react-native';
+import { View, Modal, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import LinearGradient from 'react-native-linear-gradient';
 import MainText from '../../components/ui/MainText';
+import LocationList from './locationList';
 import { selectMedia } from '../../store/actions/media';
 
 class SingleMedia extends Component {
@@ -11,12 +14,27 @@ class SingleMedia extends Component {
 
   render() {
     const { selectedMedia } = this.props;
+    const gradColor = ['#8905F7', '#6C16E8', '#4916E8', '#192f6a'];
     return (
       <Modal visible={!!selectedMedia} animationType="slide">
-        <View style={styles.container}>
-          <MainText>Placeholder</MainText>
-          <Button title="Close" color="red" onPress={this.handleClose} />
-        </View>
+        <LinearGradient colors={gradColor} style={styles.gradient}>
+          <View style={styles.container}>
+            <TouchableOpacity
+              style={{ alignSelf: 'flex-end' }}
+              onPress={this.handleClose}
+            >
+              <View>
+                <Icon name="ios-close" size={40} color="purple" />
+              </View>
+            </TouchableOpacity>
+            <Image
+              source={{ uri: selectedMedia.picture }}
+              style={styles.image}
+            />
+            <MainText style={styles.name}>{selectedMedia.name}</MainText>
+            <LocationList locations={selectedMedia.locations} />
+          </View>
+        </LinearGradient>
       </Modal>
     );
   }
@@ -36,10 +54,26 @@ export default connect(
 )(SingleMedia);
 
 const styles = StyleSheet.create({
-  container: {
+  gradient: {
     flex: 1,
     width: '100%',
+    height: '100%'
+  },
+  container: {
+    flex: 1,
+    width: '95%',
     alignItems: 'center',
-    marginTop: 50
+    marginTop: 35,
+    padding: 10
+  },
+  image: {
+    height: 250,
+    width: 300,
+    margin: 5,
+    borderRadius: 10
+  },
+  name: {
+    fontSize: 30,
+    textTransform: 'uppercase'
   }
 });
