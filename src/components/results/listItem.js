@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, StyleSheet, Image } from 'react-native';
 import MainText from '../../components/ui/MainText';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class ListItem extends Component {
   render() {
     const { media, handleClick } = this.props;
+    const gradColor = ['#6700FC', '#192f6a'];
     return (
-      <TouchableOpacity
-        style={styles.container}
-        onPress={() => handleClick(media)}
-      >
-        <Image source={{ uri: media.picture }} style={styles.image} />
-        <MainText style={styles.text}>{media.name}</MainText>
-      </TouchableOpacity>
+      <LinearGradient colors={gradColor} style={styles.container}>
+        <TouchableOpacity
+          style={styles.touch}
+          onPress={() => handleClick(media)}
+        >
+          <Image source={{ uri: media.picture }} style={styles.image} />
+          <MainText style={styles.text}>{media.name}</MainText>
+        </TouchableOpacity>
+      </LinearGradient>
     );
   }
 }
@@ -20,26 +24,31 @@ export default class ListItem extends Component {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 75,
-    borderBottomWidth: 0.25,
-    borderTopWidth: 0.25,
-    borderColor: '#000',
+    height: 100,
     marginTop: 5,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
+    alignItems: 'center'
+  },
+  touch: {
+    flex: 1,
+    height: '100%',
+    width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#6700FC'
+    borderBottomWidth: 0.5,
+    borderTopWidth: 0.5,
+    borderColor: '#04015D'
   },
   image: {
-    width: '25%',
-    height: '98%',
+    width: '30%',
+    height: '99%',
     marginRight: 15
   },
   text: {
-    fontSize: 18,
-    width: '70%'
+    fontSize: 22,
+    width: '65%',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1
   }
 });
