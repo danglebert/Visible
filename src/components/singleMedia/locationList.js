@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { View, Linking, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  ScrollView,
+  View,
+  Linking,
+  StyleSheet,
+  TouchableOpacity
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import MainText from '../ui/MainText';
 
@@ -7,7 +13,7 @@ class LocationList extends Component {
   render() {
     const { locations } = this.props;
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <MainText style={styles.avail}>Available On</MainText>
         {locations.map(loc => (
           <View key={loc.id} style={styles.location}>
@@ -17,7 +23,7 @@ class LocationList extends Component {
             </TouchableOpacity>
           </View>
         ))}
-      </View>
+      </ScrollView>
     );
   }
 }

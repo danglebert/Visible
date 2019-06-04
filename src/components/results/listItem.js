@@ -41,14 +41,10 @@ const styles = StyleSheet.create({
   image: {
     width: '30%',
     height: '99%',
-    marginRight: 15
+    marginRight: 20
   },
   text: {
     fontSize: 22,
-    width: '65%',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 1
+    width: '62%'
   }
 });

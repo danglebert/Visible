@@ -14,7 +14,7 @@ class SingleMedia extends Component {
 
   render() {
     const { selectedMedia } = this.props;
-    const gradColor = ['#77295D', '#8905F7', '#6C16E8', '#4916E8', '#192f6a'];
+    const gradColor = ['#7A2850', '#8905F7', '#6C16E8', '#4916E8', '#192f6a'];
     return (
       <Modal visible={!!selectedMedia} animationType="slide">
         <LinearGradient colors={gradColor} style={styles.gradient}>
@@ -24,7 +24,7 @@ class SingleMedia extends Component {
               onPress={this.handleClose}
             >
               <View>
-                <Icon name="ios-close" size={40} color="purple" />
+                <Icon name="ios-close" size={40} color="#0A026D" />
               </View>
             </TouchableOpacity>
             <Image
@@ -70,10 +70,13 @@ const styles = StyleSheet.create({
     height: 250,
     width: 300,
     margin: 5,
-    borderRadius: 10
+    borderRadius: 10,
+    borderColor: 'black',
+    borderWidth: 1
   },
   name: {
     fontSize: 30,
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    textAlign: 'center'
   }
 });
