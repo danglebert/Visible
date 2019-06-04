@@ -104,11 +104,11 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   tvIcon: {
-    height: 120,
-    width: 120
+    height: 150,
+    width: 150
   },
   mainText: {
-    fontSize: 20,
+    fontSize: 30,
     textAlign: 'center',
     margin: 10
   },
