@@ -7,9 +7,12 @@ const MainText = props => (
 
 const styles = StyleSheet.create({
   mainText: {
-    color: 'black',
+    color: 'white',
     backgroundColor: 'transparent',
-    fontFamily: 'DINAlternate-Bold'
+    fontFamily: 'DINAlternate-Bold',
+    textShadowColor: 'black',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1
   }
 });
 

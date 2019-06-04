@@ -29,7 +29,7 @@ class Results extends Component {
         </ScrollView>
       </LinearGradient>
     ) : (
-      <NoResults />
+      <NoResults navigator={this.props.navigator} />
     );
   }
 }
