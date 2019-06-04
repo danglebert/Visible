@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import MainText from '../components/ui/MainText';
 import backgroundImg from '../assets/purple-back.jpg';
-import teleIcon from '../assets/tv.png';
+import teleIcon from '../assets/tv-white.png';
 import { fetchMedia } from '../store/actions/media';
 
 class Home extends Component {
@@ -45,6 +45,9 @@ class Home extends Component {
     this.props.navigator.push({
       screen: 'Visible.Results',
       title: 'Search Results',
+      passProps: {
+        navigator: this.props.navigator
+      },
       animated: true
     });
   };
@@ -110,7 +113,10 @@ const styles = StyleSheet.create({
   mainText: {
     fontSize: 30,
     textAlign: 'center',
-    margin: 10
+    margin: 10,
+    textShadowColor: 'black',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 8
   },
   inputContainer: {
     flexDirection: 'row'
@@ -138,5 +144,3 @@ const styles = StyleSheet.create({
     padding: 3
   }
 });
-
-// #CC86EE - pinkish input background color

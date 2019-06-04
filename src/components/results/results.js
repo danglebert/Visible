@@ -5,6 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import ListItem from './listItem';
 import SingleMedia from '../singleMedia/singleMedia';
 import { selectMedia } from '../../store/actions/media';
+import NoResults from './noResults';
 
 class Results extends Component {
   handleClick = media => {
@@ -14,7 +15,7 @@ class Results extends Component {
   render() {
     const { media } = this.props;
     const gradColor = ['#03045B', '#242461', '#2D2C6F', '#8905F7', '#7A2850'];
-    return (
+    return media.length ? (
       <LinearGradient colors={gradColor} style={styles.container}>
         <SingleMedia />
         <ScrollView>
@@ -27,6 +28,8 @@ class Results extends Component {
           ))}
         </ScrollView>
       </LinearGradient>
+    ) : (
+      <NoResults navigator={this.props.navigator} />
     );
   }
 }
