@@ -9,6 +9,7 @@ import {
   TextInput,
   TouchableOpacity
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import MainText from '../components/ui/MainText';
 import backgroundImg from '../assets/purple-back.jpg';
 import teleIcon from '../assets/tv-white.png';
@@ -54,6 +55,7 @@ class Home extends Component {
 
   render() {
     const { logoAnim, inputAnim, inputVal } = this.state;
+    const btnColor = ['#6700FC', '#192f6a'];
     return (
       <ImageBackground source={backgroundImg} style={styles.backgroundImage}>
         <KeyboardAvoidingView style={styles.container} behavior="padding">
@@ -70,12 +72,11 @@ class Home extends Component {
               value={inputVal}
               onChangeText={this.inputChangeHandler}
             />
-            <TouchableOpacity
-              style={styles.searchBtn}
-              onPress={this.handleSubmit}
-            >
-              <MainText>Search</MainText>
-            </TouchableOpacity>
+            <LinearGradient style={styles.btnContainer} colors={btnColor}>
+              <TouchableOpacity style={styles.btn} onPress={this.handleSubmit}>
+                <MainText>Search</MainText>
+              </TouchableOpacity>
+            </LinearGradient>
           </Animated.View>
         </KeyboardAvoidingView>
       </ImageBackground>
@@ -130,17 +131,24 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 7,
     borderTopLeftRadius: 50,
-    borderBottomLeftRadius: 50
+    borderBottomLeftRadius: 50,
+    height: 30
   },
-  searchBtn: {
-    borderWidth: 1,
-    borderColor: '#D905DC',
-    backgroundColor: '#512E80',
+  btnContainer: {
     borderTopRightRadius: 50,
     borderBottomRightRadius: 50,
     justifyContent: 'center',
-    color: 'white',
     width: 50,
+    height: 30
+  },
+  btn: {
+    borderWidth: 1,
+    borderColor: '#D905DC',
+    borderTopRightRadius: 50,
+    borderBottomRightRadius: 50,
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: 3
   }
 });

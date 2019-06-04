@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   textAndBtn: {
-    height: '30%',
+    height: '25%',
     justifyContent: 'space-between',
     alignItems: 'center'
   },
