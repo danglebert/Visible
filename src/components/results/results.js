@@ -13,7 +13,7 @@ class Results extends Component {
 
   render() {
     const { media } = this.props;
-    const gradColor = ['#27252F', '#242461', '#2D2C6F', '#8905F7', '#7A2850'];
+    const gradColor = ['#03045B', '#242461', '#2D2C6F', '#8905F7', '#7A2850'];
     return (
       <LinearGradient colors={gradColor} style={styles.container}>
         <SingleMedia />
