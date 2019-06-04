@@ -12,10 +12,20 @@ import MainText from '../ui/MainText';
 class LocationList extends Component {
   render() {
     const { locations } = this.props;
+    const locationSet = new Set();
+    const filteredLocs = [];
+
+    for (let loc of locations) {
+      if (!locationSet.has(loc.display_name)) {
+        locationSet.add(loc.display_name);
+        filteredLocs.push(loc);
+      }
+    }
+
     return (
       <ScrollView style={styles.container}>
         <MainText style={styles.avail}>Available On</MainText>
-        {locations.map(loc => (
+        {filteredLocs.map(loc => (
           <View key={loc.id} style={styles.location}>
             <MainText style={styles.locName}>{loc.display_name}</MainText>
             <TouchableOpacity onPress={() => Linking.openURL(loc.url)}>
