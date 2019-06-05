@@ -132,7 +132,8 @@ const styles = StyleSheet.create({
     textShadowRadius: 8
   },
   inputContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginBottom: 30
   },
   input: {
     width: 250,
