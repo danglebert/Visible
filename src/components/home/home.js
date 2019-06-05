@@ -10,10 +10,10 @@ import {
   TouchableOpacity
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import MainText from '../components/ui/MainText';
-import backgroundImg from '../assets/purple-back.jpg';
-import teleIcon from '../assets/tv-white.png';
-import { fetchMedia } from '../store/actions/media';
+import MainText from '../ui/MainText';
+import backgroundImg from '../../assets/purple-back.jpg';
+import teleIcon from '../../assets/tv-white.png';
+import { fetchMedia } from '../../store/actions/media';
 
 class Home extends Component {
   state = {
