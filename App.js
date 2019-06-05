@@ -1,5 +1,5 @@
 import { Navigation } from 'react-native-navigation';
-import Home from './src/components/home';
+import Home from './src/components/home/home';
 import Results from './src/components/results/results';
 import { Provider } from 'react-redux';
 import configureStore from './src/store/configureStore';
