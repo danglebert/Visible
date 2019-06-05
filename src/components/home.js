@@ -19,7 +19,8 @@ class Home extends Component {
   state = {
     logoAnim: new Animated.Value(0),
     inputAnim: new Animated.Value(0),
-    inputVal: ''
+    inputVal: '',
+    validSearch: false
   };
 
   componentDidMount() {
@@ -38,7 +39,11 @@ class Home extends Component {
   }
 
   inputChangeHandler = text => {
-    this.setState({ ...this.state, inputVal: text });
+    this.setState({
+      ...this.state,
+      inputVal: text,
+      validSearch: text.trim() !== '' ? true : false
+    });
   };
 
   handleSubmit = () => {
@@ -54,7 +59,7 @@ class Home extends Component {
   };
 
   render() {
-    const { logoAnim, inputAnim, inputVal } = this.state;
+    const { logoAnim, inputAnim, inputVal, validSearch } = this.state;
     const btnColor = ['#6700FC', '#192f6a'];
     return (
       <ImageBackground source={backgroundImg} style={styles.backgroundImage}>
@@ -72,8 +77,15 @@ class Home extends Component {
               value={inputVal}
               onChangeText={this.inputChangeHandler}
             />
-            <LinearGradient style={styles.btnContainer} colors={btnColor}>
-              <TouchableOpacity style={styles.btn} onPress={this.handleSubmit}>
+            <LinearGradient
+              style={[styles.btnContainer, !validSearch && { opacity: 0.8 }]}
+              colors={btnColor}
+            >
+              <TouchableOpacity
+                disabled={!validSearch}
+                style={styles.btn}
+                onPress={this.handleSubmit}
+              >
                 <MainText>Search</MainText>
               </TouchableOpacity>
             </LinearGradient>
