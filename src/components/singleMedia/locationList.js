@@ -51,8 +51,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 20,
     marginBottom: 10,
-    textDecorationLine: 'underline',
-    textDecorationStyle: 'double'
+    textDecorationLine: 'underline'
   },
   location: {
     flexDirection: 'row',

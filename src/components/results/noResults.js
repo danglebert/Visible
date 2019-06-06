@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   icon: {
+    marginTop: 20,
     marginBottom: 20
   },
   textAndBtn: {
@@ -49,8 +50,9 @@ const styles = StyleSheet.create({
   grad: {
     width: 175,
     height: 40,
-    borderWidth: 1,
-    borderRadius: 50
+    borderWidth: 0.3,
+    borderRadius: 50,
+    borderColor: 'black'
   },
   button: {
     height: '100%',
