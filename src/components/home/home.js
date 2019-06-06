@@ -2,7 +2,9 @@ import React from 'react';
 import {
   StyleSheet,
   ImageBackground,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard
 } from 'react-native';
 import backgroundImg from '../../assets/purple-back.jpg';
 import WelcomeLogo from './welcomeLogo';
@@ -10,10 +12,12 @@ import SearchInput from './searchInput';
 
 const Home = ({ navigator }) => (
   <ImageBackground source={backgroundImg} style={styles.backgroundImage}>
-    <KeyboardAvoidingView style={styles.container} behavior="padding">
-      <WelcomeLogo />
-      <SearchInput navigator={navigator} />
-    </KeyboardAvoidingView>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <WelcomeLogo />
+        <SearchInput navigator={navigator} />
+      </KeyboardAvoidingView>
+    </TouchableWithoutFeedback>
   </ImageBackground>
 );
 
