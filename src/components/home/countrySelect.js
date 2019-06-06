@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import PurpleGrad from '../ui/purpleGrad';
 import MainText from '../ui/MainText';
 import { selectCountry } from '../../store/actions/media';
 import { connect } from 'react-redux';
@@ -11,13 +11,11 @@ class CountrySelect extends Component {
   };
 
   render() {
-    const btnColor = ['#6700FC', '#192f6a'];
     const { country } = this.props;
     return (
       <View style={styles.container}>
-        <LinearGradient
+        <PurpleGrad
           style={[styles.usBtnContainer, country !== 'us' && { opacity: 0.6 }]}
-          colors={btnColor}
         >
           <TouchableOpacity
             style={styles.usBtn}
@@ -25,10 +23,9 @@ class CountrySelect extends Component {
           >
             <MainText>US</MainText>
           </TouchableOpacity>
-        </LinearGradient>
-        <LinearGradient
+        </PurpleGrad>
+        <PurpleGrad
           style={[styles.ukBtnContainer, country !== 'uk' && { opacity: 0.6 }]}
-          colors={btnColor}
         >
           <TouchableOpacity
             style={styles.ukBtn}
@@ -36,7 +33,7 @@ class CountrySelect extends Component {
           >
             <MainText>UK</MainText>
           </TouchableOpacity>
-        </LinearGradient>
+        </PurpleGrad>
       </View>
     );
   }
