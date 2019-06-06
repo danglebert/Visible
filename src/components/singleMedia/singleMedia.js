@@ -77,6 +77,9 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 30,
     textTransform: 'uppercase',
-    textAlign: 'center'
+    textAlign: 'center',
+    textShadowColor: 'black',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5
   }
 });

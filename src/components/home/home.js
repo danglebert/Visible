@@ -81,7 +81,7 @@ class Home extends Component {
                 onChangeText={this.inputChangeHandler}
               />
               <LinearGradient
-                style={[styles.btnContainer, !validSearch && { opacity: 0.8 }]}
+                style={[styles.btnContainer, !validSearch && { opacity: 0.6 }]}
                 colors={btnColor}
               >
                 <TouchableOpacity
