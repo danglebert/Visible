@@ -57,7 +57,8 @@ export default connect(
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginBottom: 40
   },
   usBtnContainer: {
     borderTopLeftRadius: 50,
