@@ -10,12 +10,12 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import MainText from '../ui/MainText';
 import backgroundImg from '../../assets/purple-back.jpg';
 import teleIcon from '../../assets/tv-white.png';
 import { fetchMedia } from '../../store/actions/media';
 import CountrySelect from './countrySelect';
+import PurpleGrad from '../ui/purpleGrad';
 
 class Home extends Component {
   state = {
@@ -62,7 +62,6 @@ class Home extends Component {
 
   render() {
     const { logoAnim, inputAnim, inputVal, validSearch } = this.state;
-    const btnColor = ['#6700FC', '#192f6a'];
     return (
       <ImageBackground source={backgroundImg} style={styles.backgroundImage}>
         <KeyboardAvoidingView style={styles.container} behavior="padding">
@@ -80,9 +79,8 @@ class Home extends Component {
                 value={inputVal}
                 onChangeText={this.inputChangeHandler}
               />
-              <LinearGradient
+              <PurpleGrad
                 style={[styles.btnContainer, !validSearch && { opacity: 0.6 }]}
-                colors={btnColor}
               >
                 <TouchableOpacity
                   disabled={!validSearch}
@@ -91,7 +89,7 @@ class Home extends Component {
                 >
                   <MainText>Search</MainText>
                 </TouchableOpacity>
-              </LinearGradient>
+              </PurpleGrad>
             </View>
             <CountrySelect />
           </Animated.View>

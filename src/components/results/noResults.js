@@ -3,6 +3,7 @@ import MainText from '../ui/MainText';
 import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import tvOff from '../../assets/tv-off-white.png';
+import PurpleGrad from '../ui/purpleGrad';
 
 class NoResults extends Component {
   handleRedirect = () => {
@@ -11,7 +12,6 @@ class NoResults extends Component {
 
   render() {
     const backColor = ['#03045B', '#242461', '#2D2C6F', '#8905F7', '#7A2850'];
-    const btnColor = ['#6700FC', '#192f6a'];
     return (
       <LinearGradient colors={backColor} style={styles.container}>
         <Image source={tvOff} style={styles.icon} />
@@ -19,14 +19,14 @@ class NoResults extends Component {
           <MainText style={{ fontSize: 20 }}>
             No Results Match Your Query
           </MainText>
-          <LinearGradient style={styles.grad} colors={btnColor}>
+          <PurpleGrad style={styles.grad}>
             <TouchableOpacity
               style={styles.button}
               onPress={this.handleRedirect}
             >
               <MainText>Return to Search</MainText>
             </TouchableOpacity>
-          </LinearGradient>
+          </PurpleGrad>
         </View>
       </LinearGradient>
     );
