@@ -6,6 +6,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import MainText from '../../components/ui/MainText';
 import LocationList from './locationList';
 import { selectMedia } from '../../store/actions/media';
+import defaultPic from '../../assets/movie-outline.png';
 
 class SingleMedia extends Component {
   handleClose = () => {
@@ -28,7 +29,11 @@ class SingleMedia extends Component {
               </View>
             </TouchableOpacity>
             <Image
-              source={{ uri: selectedMedia.picture }}
+              source={
+                selectedMedia.picture
+                  ? { uri: selectedMedia.picture }
+                  : defaultPic
+              }
               style={styles.image}
             />
             <MainText style={styles.name}>{selectedMedia.name}</MainText>

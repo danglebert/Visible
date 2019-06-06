@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TouchableOpacity, StyleSheet, Image } from 'react-native';
 import MainText from '../../components/ui/MainText';
 import LinearGradient from 'react-native-linear-gradient';
+import defaultPic from '../../assets/movie-outline.png';
 
 export default class ListItem extends Component {
   render() {
@@ -13,7 +14,10 @@ export default class ListItem extends Component {
           style={styles.touch}
           onPress={() => handleClick(media)}
         >
-          <Image source={{ uri: media.picture }} style={styles.image} />
+          <Image
+            source={media.picture ? { uri: media.picture } : defaultPic}
+            style={styles.image}
+          />
           <MainText style={styles.text}>{media.name}</MainText>
         </TouchableOpacity>
       </LinearGradient>
