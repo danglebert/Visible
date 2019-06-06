@@ -7,13 +7,15 @@ import {
   Image,
   Animated,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  View
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import MainText from '../ui/MainText';
 import backgroundImg from '../../assets/purple-back.jpg';
 import teleIcon from '../../assets/tv-white.png';
 import { fetchMedia } from '../../store/actions/media';
+import CountrySelect from './countrySelect';
 
 class Home extends Component {
   state = {
@@ -47,7 +49,7 @@ class Home extends Component {
   };
 
   handleSubmit = () => {
-    this.props.fetchMedia(this.state.inputVal);
+    this.props.fetchMedia(this.state.inputVal, this.props.country);
     this.props.navigator.push({
       screen: 'Visible.Results',
       title: 'Search Results',
@@ -69,26 +71,29 @@ class Home extends Component {
             <MainText style={styles.mainText}>Welcome to Visible</MainText>
           </Animated.View>
           <Animated.View
-            style={[styles.inputContainer, { opacity: inputAnim }]}
+            style={[styles.searchContainer, { opacity: inputAnim }]}
           >
-            <TextInput
-              style={styles.input}
-              placeholder="What do you want to watch?"
-              value={inputVal}
-              onChangeText={this.inputChangeHandler}
-            />
-            <LinearGradient
-              style={[styles.btnContainer, !validSearch && { opacity: 0.8 }]}
-              colors={btnColor}
-            >
-              <TouchableOpacity
-                disabled={!validSearch}
-                style={styles.btn}
-                onPress={this.handleSubmit}
+            <View style={styles.inputContainer}>
+              <TextInput
+                style={styles.input}
+                placeholder="What do you want to watch?"
+                value={inputVal}
+                onChangeText={this.inputChangeHandler}
+              />
+              <LinearGradient
+                style={[styles.btnContainer, !validSearch && { opacity: 0.8 }]}
+                colors={btnColor}
               >
-                <MainText>Search</MainText>
-              </TouchableOpacity>
-            </LinearGradient>
+                <TouchableOpacity
+                  disabled={!validSearch}
+                  style={styles.btn}
+                  onPress={this.handleSubmit}
+                >
+                  <MainText>Search</MainText>
+                </TouchableOpacity>
+              </LinearGradient>
+            </View>
+            <CountrySelect />
           </Animated.View>
         </KeyboardAvoidingView>
       </ImageBackground>
@@ -96,12 +101,16 @@ class Home extends Component {
   }
 }
 
+const mapState = state => ({
+  country: state.media.country
+});
+
 const mapDispatch = dispatch => ({
-  fetchMedia: query => dispatch(fetchMedia(query))
+  fetchMedia: (query, country) => dispatch(fetchMedia(query, country))
 });
 
 export default connect(
-  null,
+  mapState,
   mapDispatch
 )(Home);
 
@@ -131,9 +140,12 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 8
   },
+  searchContainer: {
+    alignItems: 'center'
+  },
   inputContainer: {
     flexDirection: 'row',
-    marginBottom: 30
+    marginBottom: 10
   },
   input: {
     width: 250,

@@ -1,4 +1,4 @@
-import { SET_MEDIA, SELECT_MEDIA } from './actionTypes';
+import { SET_MEDIA, SELECT_MEDIA, SELECT_COUNTRY } from './actionTypes';
 import axios from 'axios';
 import { rapidKey } from '../../../secrets';
 import { strToQuery } from '../../util';
@@ -13,10 +13,15 @@ export const selectMedia = media => ({
   payload: media
 });
 
-export const fetchMedia = query => async dispatch => {
+export const selectCountry = country => ({
+  type: SELECT_COUNTRY,
+  payload: country
+});
+
+export const fetchMedia = (query, country) => async dispatch => {
   const filteredQuery = strToQuery(query);
   const { data: media } = await axios.get(
-    `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${filteredQuery}&country=us`,
+    `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${filteredQuery}&country=${country}`,
     {
       headers: {
         'X-RapidAPI-Host':
