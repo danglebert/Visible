@@ -6,11 +6,13 @@ https://rapidapi.com/utelly/api/utelly
 Currently supports finding movies/shows on: Netflix, Amazon Prime Videos, Amazon Instant Videos, iTunes, Now TV, TalkTalk TV Store, Google Play, BBC IPlayer, All4, My5, Rakuten TV, ITV Hub
 
 
+
 Tech/Stack Used:
 React Native
 React-native-navigation
 Redux
 Utelly API
+
 
 
 Dev Instructions:
