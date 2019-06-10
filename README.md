@@ -8,10 +8,10 @@ Currently supports finding movies/shows on: Netflix, Amazon Prime Videos, Amazon
 
 
 Tech/Stack Used:
-React Native
-React-native-navigation
-Redux
-Utelly API
+- React Native
+- React-native-navigation
+- Redux
+- Utelly API
 
 
 
