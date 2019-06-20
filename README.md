@@ -3,6 +3,8 @@
 iOS App for finding where to stream your favorite movies and shows via Utelly API.
 https://rapidapi.com/utelly/api/utelly
 
+![](https://media.giphy.com/media/dWyCXCLIOxYwV4bC01/giphy.gif)
+
 Currently supports finding movies/shows on: Netflix, Amazon Prime Videos, Amazon Instant Videos, iTunes, Now TV, TalkTalk TV Store, Google Play, BBC IPlayer, All4, My5, Rakuten TV, ITV Hub
 
 
